@@ -13,6 +13,9 @@ build-stamp: stage-stamp
 stage-stamp: configure-stamp
 
 configure-stamp: patch-stamp
+	echo "PATH=[$(PATH)]"
+	echo "LD_LIBRARY_PATH=[$(LD_LIBRARY_PATH)]"
+	echo "PKG_CONFIG_PATH=[$(PKG_CONFIG_PATH)]"
 	cd $(pq_part_name) && ./configure $(pq_libxml2_configuration_flags)
 	touch $@
 
